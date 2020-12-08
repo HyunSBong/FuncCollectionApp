@@ -1,4 +1,5 @@
 # Swift Study Application
+스위프트 공부용 애플리케이션
 
 - Swift Guide (informal)
 https://www.simpleswiftguide.com/
