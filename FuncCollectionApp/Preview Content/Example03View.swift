@@ -30,7 +30,7 @@ struct Example03View: View {
                 Text("객체 없이 텍스트로만 구현된 탭")
                     .tabItem {
                         Image(systemName: "tray")
-                        Text("4")
+                        Text("None")
                     }
             }
         }.navigationTitle("3. TabView 구현하기")
