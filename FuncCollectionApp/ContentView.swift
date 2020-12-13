@@ -44,7 +44,8 @@ struct ContentView: View {
         menuScrollView (title: "2. Picker 구현하기", obj: AnyView(Example02View())),
         menuScrollView (title: "3. TabView 구현하기", obj: AnyView(Example03View())),
         menuScrollView (title: "4. Form 구현하기", obj: AnyView(Example04View())),
-        menuScrollView (title: "5. Stepper 구현하기", obj: AnyView(Example05View()))
+        menuScrollView (title: "5. Stepper 구현하기", obj: AnyView(Example05View())),
+        menuScrollView (title: "6. 앨범에서 사진 가져오기", obj: AnyView(Example06View()))
     ]
     // 배열을 받아서 출력하기
     return NavigationView {
@@ -68,8 +69,9 @@ struct ContentView: View {
                     self.showSheetView.toggle()
                     print("consol : 네비게이션 바 우측 버튼 눌림")
                 }) {
-                    Image(systemName: "bell.circle.fill")
-                        .font(Font.system(.title))
+//                    Image(systemName: "plus.circle.fill")
+//                        .font(Font.system(.title))
+                    Text("프로젝트 추가")
                 }
             ) // 네비게이션 바 우측에 버튼 추가
         }.sheet(isPresented: $showSheetView) {
