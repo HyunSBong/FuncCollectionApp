@@ -17,7 +17,7 @@ struct Example04View: View {
     
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             Form {
                 Section(header: Text("프로파일")) {
                     TextField("UserName", text: $username)
@@ -36,15 +36,14 @@ struct Example04View: View {
                         }
                     }
                 }
-                
+
                 Section(header: Text("ABOUT")) {
                     HStack {
                         Text("Version")
-                        Spacer()
                         Text("0.0.1")
                     }
                 }
-                
+
                 Section {
                     Button(action: {
                         print("action")
@@ -52,9 +51,10 @@ struct Example04View: View {
                         Text("Reset")
                     }
                 }
-            }
-            .navigationBarTitle("설정")
+//            }
+//            .navigationBarTitle(Text("설정"), displayMode: .inline)
         }
+            .navigationBarTitle(Text("설정"), displayMode: .inline)
     }
 }
 
