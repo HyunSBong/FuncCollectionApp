@@ -10,8 +10,25 @@ import SwiftUI
 //struct는 class 처럼 함수를 가질 수도 있지만 protocol 상속이 가능하다.
 // protocol을 상속한다면 변수나 함수도 구현해야한다(Interface과 같은 개념)
 
+struct SheetView: View { // 프로젝트 추가 뷰
+    @Binding var showSheetView: Bool
+
+    var body: some View {
+        NavigationView {
+            Text("프로젝트 추가 화면입니다.")
+            .navigationBarTitle(Text("프로젝트 추가"), displayMode: .inline)
+                .navigationBarItems(trailing: Button(action: {
+                    print("consol : 완료버튼 눌림")
+                    self.showSheetView = false
+                }) {
+                    Text("완료").bold()
+                })
+        }
+    }
+}
 
 struct ContentView: View {
+    @State var showSheetView = false // 프로젝트 추가 버튼 변수
     // some 키워드는 제네릭으로 이해하면 편하다.
     var body: some View {
     // 다음 View로 넘어가기 ( 이벤트 처리 )
@@ -44,7 +61,20 @@ struct ContentView: View {
             }
         }
         .navigationTitle("FunctionCollection")
-    }
+        
+        // 프로젝트 추가 버튼
+        .navigationBarItems(trailing:
+                Button(action: {
+                    self.showSheetView.toggle()
+                    print("consol : 네비게이션 바 우측 버튼 눌림")
+                }) {
+                    Image(systemName: "bell.circle.fill")
+                        .font(Font.system(.title))
+                }
+            ) // 네비게이션 바 우측에 버튼 추가
+        }.sheet(isPresented: $showSheetView) {
+            SheetView(showSheetView: self.$showSheetView)
+            }
     }
     
 }
