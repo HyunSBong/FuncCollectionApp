@@ -23,11 +23,11 @@ struct ContentView: View {
     }
     
     let menu : [menuScrollView] = [
-        menuScrollView (title : "1. 텍스트 표시하기", obj : AnyView(Example01View())),
+        menuScrollView (title: "1. 텍스트 표시하기", obj : AnyView(Example01View())),
         menuScrollView (title: "2. Picker 구현하기", obj: AnyView(Example02View())),
         menuScrollView (title: "3. TabView 구현하기", obj: AnyView(Example03View())),
         menuScrollView (title: "4. Form 구현하기", obj: AnyView(Example04View())),
-        menuScrollView (title: "5. 준비중", obj: AnyView(Example05View()))
+        menuScrollView (title: "5. Stepper 구현하기", obj: AnyView(Example05View()))
     ]
     // 배열을 받아서 출력하기
     return NavigationView {

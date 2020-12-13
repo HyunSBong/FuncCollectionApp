@@ -23,7 +23,7 @@ struct Example02View: View {
             
             VStack {
                 //타이틀
-                Spacer().frame(height: 30)
+//                Spacer().frame(height: 30)
                 Text("2. Picker 구현하기")
                     .font(.title)
                 
