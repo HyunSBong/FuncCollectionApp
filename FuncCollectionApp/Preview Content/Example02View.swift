@@ -27,13 +27,6 @@ struct photoView: View {
                         Text("사진 가져오기")
                     }
                 }
-            .navigationBarTitle(Text("알림 형태"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    print("consol : 완료버튼 눌림")
-                    self.showPictureView = false
-                }) {
-                    Text("완료").bold()
-                })
             }
         }
     }
@@ -43,8 +36,8 @@ struct Example02View: View {
     
     @State var showPictureView = false // 객체 추가 버튼 변수
     @State private var name : String = ""
-    @State var nameList = ["Cat", "Dog", "PONGKI", "Hyuji"]
-    @State var imgList = ["IMG_0078", "IMG_1405", "IMG_1405", "IMG_0078"]
+    @State var nameList: [String] = ["Cat", "Dog", "PONGKI", "Hyuji"]
+    @State var imgList: [String] = ["IMG_0078", "IMG_1405", "IMG_1405", "IMG_0078"]
     
     @State private var selected = 0
     
