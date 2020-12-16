@@ -12,6 +12,7 @@ import UIKit
 //https://www.simpleswiftguide.com/swiftui-image-tutorial/
 
 struct photoView: View {
+    //만약 리스트뷰와 토글 뷰가 나뉘어 토글에 따라 리스트를 바꿔야 하는 경우처럼 두 개의 뷰가 동시에 하나의 State를 참조해야 하는 경우가 생길 수 있다. 이때 @Binding을 사용할수 있다.
     @Binding var nameList: String
     @Binding var imgList: String
     @Binding var showPictureView: Bool
@@ -49,6 +50,7 @@ struct Example02View: View {
 //                Spacer().frame(height: 30)
                 
                 // Picker 만들기
+                // $가 붙으면 값을 수정가능한 Binding 타입을 참조한다
                 Picker(selection: $selected, label: Text("동물")) {
                     ForEach(0 ..< nameList.count) {
                         Text(self.nameList[$0])
