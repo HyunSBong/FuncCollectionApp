@@ -51,10 +51,18 @@ struct Example04View: View {
     @State private var previewIndex = 0
     @State private var alertIndex = 0
     @State var showUserView = false // 사용자 추가 버튼 변수
+    @State var selectedDate = Date()
     
     var bannerStyle = ["일시적 표시", "지속적 표시"]
     var previewOptions = ["항상", "잠겨있지 않을 때(기본)", "안 함"]
     var alertGroup = ["자동", "앱별로 정리", "끔"]
+    
+    var closedRange: ClosedRange<Date> { // DatePicker의 시간 범위 제한
+            let today = Calendar.current.date(byAdding: .day, value: -2, to: Date())!
+            let fiveDaysAgo = Calendar.current.date(byAdding: .day, value: -5, to: Date())!
+            
+            return fiveDaysAgo...today
+        }
     
     var body: some View {
             Form {
@@ -64,6 +72,7 @@ struct Example04View: View {
                     Toggle(isOn: $isAuto) {
                         Text("Automatic Login")
                     }
+                    DatePicker("생년월일", selection: $selectedDate, displayedComponents: .date)
                 }
                 Section(header: Text("알림")) {
                     Toggle(isOn: $notifivationEnabled) {
@@ -86,6 +95,7 @@ struct Example04View: View {
                             Text(self.alertGroup[$0])
                         }
                     }
+                    DatePicker("시간 설정", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                 }
 
                 Section(header: Text("ABOUT")) {
